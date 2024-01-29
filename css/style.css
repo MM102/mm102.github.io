@@ -1,6 +1,6 @@
 :root{
-	--color-main: darkslateblue;
-	--color-accent: steelblue;
+	--color-main: #d5374e;
+	--color-accent: #fca048;
 }
 
 *, *::before, *::after {
@@ -11,12 +11,12 @@
 
 a{
 	color: inherit;
+	transition: color 0.5s;
 }
 
 a:hover,
 a:focus{
 	color: var(--color-accent);
-	transition: color 0.5s;
 }
 
 body {
@@ -27,9 +27,9 @@ body {
 }
 
 header {
-	position: relative;
+	position: relative;		
 	width: 100%;
-	height: 100svh;
+	height: 100dvh;
 	background:
 		radial-gradient(circle, transparent 50%, black 150%),
 		url("../img/102scroll1-red-size2.gif");
@@ -40,7 +40,6 @@ header {
 
 main {
 	position: relative;
-	height: 100svh;
 }
 
 img {
@@ -57,6 +56,86 @@ h1 {
 	font-size: 5rem;
 }
 
+nav {
+	display: flex;
+	/* border: solid blue 1px; */
+	justify-content: center;
+}
+
+nav ul {
+	display: grid;
+	gap: 2rem 5rem;
+	line-height: 1.35;
+	list-style: none;
+	font-size: 2rem;
+}
+
+nav ul > * {
+	/* border: solid red 1px; */
+}
+
+nav li {
+	width: 200px;
+	height: 50px;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+nav li a {
+	display: block;
+	flex: 1;
+	text-align: center;
+	outline: none;
+}
+
+/* 
+nav li:focus-within {
+	border: solid var(--color-accent);
+	border-width: 0.2rem ;
+} */
+
+.button-container {
+	pointer-events: none;
+	position: absolute;
+	width: calc(100% + 10px);
+	height: calc(100% + 10px);
+	inset: -5px;
+}
+
+.button-line {
+	width: calc(100% - 10px);
+	height: calc(100% - 10px);
+	fill: transparent;
+	x: 5px;
+	y: 5px;
+	stroke: var(--color-main);
+	stroke-width: 4px;
+	stroke-dasharray: 50px 200px;
+	stroke-dashoffset: 50px;
+	transition: stroke-dasharray 500ms, stroke 500ms;
+}
+
+nav li:hover rect,
+nav li:focus-within rect
+{
+	stroke: var(--color-accent);
+	stroke-dasharray: 250 0px;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+@media (min-width: 760px) {
+	nav ul {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	nav li {
+		max-width: 200px;
+	}
+}
+
 /* LOGO STUFF */
 
 header:hover {
@@ -71,6 +150,8 @@ header:hover {
 	max-width: min(90vw, 1360px);
 	max-height: min(80vh, 970px);
 	aspect-ratio: 1360/970;
+	margin-block: 2rem;
+	margin-inline: auto;
 	position: relative;
 	isolation: isolate;
 	transform: translate( calc(var(--logo102-slideX)*var(--logo-slideScale)) , calc(var(--logo102-slideY)*var(--logo-slideScale)) );
