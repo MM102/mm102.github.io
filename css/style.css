@@ -70,10 +70,6 @@ nav ul {
 	font-size: 2rem;
 }
 
-nav ul > * {
-	/* border: solid red 1px; */
-}
-
 nav li {
 	width: 200px;
 	height: 50px;
