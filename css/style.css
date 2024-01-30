@@ -1,6 +1,22 @@
+
+/* --------- */
+/* CSS RESET */
+/* --------- */
+
 :root{
-	--color-main: #d5374e;
+	--color-bg: #291b25;
+	--color-bg-light: #493c46;
+	--color-primary: #d5374e;
+	--color-primary-dark: #8b1d2e;
 	--color-accent: #fca048;
+
+	--color-text: rgb(218, 218, 218);
+	--color-heading: rgb(255, 255, 255);
+
+	--color-grey: rgb(102, 102, 102);
+
+	--ff-heading: 'Days One', sans-serif;
+	--ff-body: 'Saira', sans-serif;
 }
 
 *, *::before, *::after {
@@ -9,9 +25,35 @@
     padding: 0px;
 }
 
+body {
+	background-color: var(--color-bg-light);
+	color: var(--color-text);
+	font-family: var(--ff-body);
+	font-size: 1rem;
+}
+
+.body-wrapper {
+	width: min;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+}
+
 a{
 	color: inherit;
 	transition: color 0.5s;
+}
+
+h1 {
+	font-family: var(--ff-heading);
+	font-size: 5rem;
+}
+
+main {
+	position: relative;
 }
 
 a:hover,
@@ -19,40 +61,26 @@ a:focus{
 	color: var(--color-accent);
 }
 
-body {
-	background-color: #130a0b;
-	color: white;
-	font-family: 'Saira', sans-serif;
-	font-size: 1rem;
-}
+/* ----------- */
+/* HEADER HERO */
+/* ----------- */
 
-main {
-	position: relative;
-}
-
-h1 {
-	font-family: 'Days One', sans-serif;
-	font-size: 5rem;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-	display: block;
+.header-hero img {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
 }
 
-header {
-	position: relative;		
+.header-hero {
+	position: relative;
 	width: 100%;
 	height: 100dvh;
 	padding: 1rem;
 	background:
 		radial-gradient(circle, transparent 50%, black 150%),
-		url("../img/102scroll1-red-size2.gif");
+		url("../img/102scroll1-violet-size2.gif"),
+		var(--color-primary-dark);
 
 	display: flex;
 	flex-direction: column;
@@ -62,7 +90,7 @@ header {
 	overflow: hidden;
 }
 
-nav ul {
+.nav-hero ul {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -72,16 +100,22 @@ nav ul {
 	font-size: 2rem;
 }
 
-nav li {
-	width: 250px;
-	height: 50px;
+/* -------------- */
+/* BUTTON STYLING */
+/* -------------- */
+
+.button-container {
+	--button-width: 250px;
+	--button-height: 50px;
+	width: var(--button-width);
+	height: var(--button-height);
 	position: relative;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
-.button-container {
-	--button-width: 250;
+.button-container .button-svg {
 	pointer-events: none;
 	position: absolute;
 	width: calc(100% + 10px);
@@ -89,52 +123,68 @@ nav li {
 	inset: -5px;
 }
 
-.button-line {
+.button-container .button-line {
 	width: calc(100% - 10px);
 	height: calc(100% - 10px);
 	fill: transparent;
 	x: 5px;
 	y: 5px;
-	stroke: var(--color-main);
+	stroke: var(--color-primary);
 	stroke-width: 4px;
-	stroke-dasharray: 50px 250px;
-	stroke-dashoffset: 50px;
+	stroke-dasharray: var(--button-height) var(--button-width);
+	stroke-dashoffset: var(--button-height);
 	transition: stroke-dasharray 500ms, stroke 500ms, stroke-dashoffset 500ms;
 }
 
-nav li:hover rect,
-nav li:focus-within rect
+.button-container:hover rect,
+.button-container:focus-within rect
 {
 	stroke: var(--color-accent);
-	stroke-dasharray: 300 0px;
-	stroke-dashoffset: -50px;
+	stroke-dasharray: calc(var(--button-height) + var(--button-width)) 0px;
+	stroke-dashoffset: calc(var(--button-height) * -1);
 }
 
-.unselectable,
-.unselectable rect,
-.unselectable:hover rect, 
-.unselectable:focus-within rect {
-	stroke: rgb(102, 102, 102);
-	color: rgb(102, 102, 102);
-}
-
-nav a, 
-nav p {
+.button-container a {
 	text-decoration: none;
-	display: block;
-	user-select: none;
 	flex: 1;
-	text-align: center;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	outline: none;
 }
 
-/* LOGO STUFF */
+.button-container p {
+	color: var(--color-heading);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+	transition: 500ms;
+}
 
-header:hover {
+.button-container a:hover p {
+	color: var(--color-accent);
+}
+
+.button-container.unselectable,
+.button-container.unselectable p,
+.button-container.unselectable rect,
+.button-container.unselectable:hover rect, 
+.button-container.unselectable:focus-within rect {
+	stroke: var(--color-grey);
+	color: var(--color-grey);
+}
+
+/* --------- */
+/* LOGO HERO */
+/* --------- */
+
+.header-hero:hover {
 	--logo-slideScale: 1;
 }
 
-.logo_container {
+.logo-hero {
 	--logo102-slideX: 0;
 	--logo102-slideY: 0;
 	--logoChars-slideX: 0;
@@ -154,34 +204,34 @@ header:hover {
 	grid-template-columns: 1fr 1fr 1fr;
 }
 
-.logo_container > img {
+.logo-hero > img {
 	grid-column: 1 / -1;
 	position: absolute;
 	pointer-events: none;
 }
 
-.logo_container > img:nth-of-type(1){
+.logo-hero > img:nth-of-type(1){
 	opacity: 0.7;
 	position: relative;
 }
 
-.logo_container > div {
+.logo-hero > div {
 	position: absolute;
 }
 
-.logo_container > div:nth-of-type(1) {
+.logo-hero > div:nth-of-type(1) {
 	z-index: 10;
 	grid-column: 1 / 2;
 	inset: 0;
 }
 
-.logo_container > div:nth-of-type(2) {
+.logo-hero > div:nth-of-type(2) {
 	z-index: 10;
 	grid-column: 2 / 3;
 	inset: 0;
 }
 
-.logo_container > div:nth-of-type(3) {
+.logo-hero > div:nth-of-type(3) {
 	z-index: 10;
 	grid-column: 3 / 4;
 	inset: 0;
@@ -201,19 +251,130 @@ header:hover {
 	pointer-events: none;
 }
 
-.logo_container > div:nth-of-type(1):hover ~ .character_container > .logo_1,
-.logo_container > div:nth-of-type(2):hover ~ .character_container > .logo_0,
-.logo_container > div:nth-of-type(3):hover ~ .character_container > .logo_2 {
+.logo-hero > div:nth-of-type(1):hover ~ .character_container > .logo_1,
+.logo-hero > div:nth-of-type(2):hover ~ .character_container > .logo_0,
+.logo-hero > div:nth-of-type(3):hover ~ .character_container > .logo_2 {
 	opacity: 1;
 }
 
-.logo_container > div:nth-of-type(1):hover ~ .logo_1n,
-.logo_container > div:nth-of-type(2):hover ~ .logo_0n,
-.logo_container > div:nth-of-type(3):hover ~ .logo_2n {
+.logo-hero > div:nth-of-type(1):hover ~ .logo_1n,
+.logo-hero > div:nth-of-type(2):hover ~ .logo_0n,
+.logo-hero > div:nth-of-type(3):hover ~ .logo_2n {
 	opacity: 0.25;
 }
 
 .logo_1, .logo_0, .logo_2, .logo_1n, .logo_0n, .logo_2n  {
 	opacity: 0;
 	transition: 250ms cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+/* ------------- */
+/* HEADER NORMAL */
+/* ------------- */
+
+.header-normal {
+	position: relative;
+	width: 100%;
+	height: 4rem;
+	padding-inline: 1rem;
+	background:
+		url("../img/102scroll1-violet-size2.gif"),
+		var(--color-bg-light);
+
+	display: flex;
+	gap: 2rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+	justify-content: space-between;
+	align-items: center;
+	/* overflow: hidden; */
+}
+
+.logo-normal {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+
+	/* outline: 2px solid blue ; */
+}
+
+.logo-normal span {
+	--button-width: 100px;
+	--button-height: 50px;
+	width: 100px;
+	height: 50px;
+}
+
+.logo-normal img {
+	height: 30px;
+}
+
+.logo-normal svg {
+	z-index: 1;
+}
+
+.nav-normal ul {
+	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 5px;
+	gap: 1rem 2rem;
+	line-height: 1.35;
+	list-style: none;
+	font-size: 2rem;
+}
+
+.nav-normal li {
+	--button-width: 150px;
+	--button-height: 50px;
+	display: flex;
+	justify-content: center;
+	gap: 1rem 2rem;
+	line-height: 1.35;
+	list-style: none;
+	font-size: 1.3rem;
+}
+
+@media (max-width: 900px) {
+	.header-normal {
+		padding-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem 2rem;
+		height: auto;
+		position: relative;
+	}
+	.header-normal::after {
+		content: "";
+		position: absolute;
+		bottom: 5px;
+		width: 20px;
+		height: 20px;
+		border-right: 4px solid var(--color-primary);
+		border-bottom: 4px solid var(--color-primary);
+		transform: rotate(45deg);
+		transition: 500ms;
+	}
+	.nav-normal {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: 500ms;
+	}
+	.nav-normal ul {
+		padding: 0px;
+		transition: 500ms;
+	}
+	.header-normal[aria-expanded="true"] .nav-normal {
+		grid-template-rows: 1fr;
+	}
+	.header-normal[aria-expanded="true"] .nav-normal ul {
+		padding: 5px;
+		margin-bottom: 2rem;
+	}
+	.header-normal[aria-expanded="true"]::after {
+		transform: rotate(-135deg);
+		bottom: -7px;
+	}
 }

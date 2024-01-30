@@ -18,10 +18,11 @@ function logoMove(event) {
 	logoUpdate();
 };
 
+
 function logoUpdate() {
-	// console.log();
 	const header = document.querySelector( "header" );
-	const logo = document.querySelector( ".logo_container" );
+	// console.log();
+	const logo = document.querySelector( ".logo-hero" );
 
 	const middleX = (header.offsetWidth/2);
 	const middleY = (header.offsetHeight/2)-window.scrollY;
@@ -35,3 +36,15 @@ function logoUpdate() {
 	logo.style.setProperty("--logoChars-slideX", logoCharsOffsetX + "px");
 	logo.style.setProperty("--logoChars-slideY", logoCharsOffsetY + "px");
 };
+
+
+function toggleNav() {
+	const header = document.querySelector( ".header-normal" );
+	const navIsOpened = header.getAttribute("aria-expanded");
+
+	if (navIsOpened === "true") {
+		header.setAttribute("aria-expanded", false);
+	} else {
+		header.setAttribute("aria-expanded", true);
+	}
+}
