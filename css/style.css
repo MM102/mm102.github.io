@@ -26,29 +26,8 @@ body {
 	font-size: 1rem;
 }
 
-header {
-	position: relative;		
-	width: 100%;
-	height: 100dvh;
-	background:
-		radial-gradient(circle, transparent 50%, black 150%),
-		url("../img/102scroll1-red-size2.gif");
-	display: grid;
-	place-content: center;
-	overflow: hidden;
-}
-
 main {
 	position: relative;
-}
-
-img {
-	max-width: 100%;
-	display: block;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
 }
 
 h1 {
@@ -56,42 +35,53 @@ h1 {
 	font-size: 5rem;
 }
 
-nav {
+img {
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+header {
+	position: relative;		
+	width: 100%;
+	height: 100dvh;
+	padding: 1rem;
+	background:
+		radial-gradient(circle, transparent 50%, black 150%),
+		url("../img/102scroll1-red-size2.gif");
+
 	display: flex;
-	/* border: solid blue 1px; */
+	flex-direction: column;
+	gap: 2rem;
+	align-items: center;
 	justify-content: center;
+	overflow: hidden;
 }
 
 nav ul {
-	display: grid;
-	gap: 2rem 5rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem 2rem;
 	line-height: 1.35;
 	list-style: none;
 	font-size: 2rem;
 }
 
 nav li {
-	width: 200px;
+	width: 250px;
 	height: 50px;
 	position: relative;
 	display: flex;
 	align-items: center;
 }
 
-nav li a {
-	display: block;
-	flex: 1;
-	text-align: center;
-	outline: none;
-}
-
-/* 
-nav li:focus-within {
-	border: solid var(--color-accent);
-	border-width: 0.2rem ;
-} */
-
 .button-container {
+	--button-width: 250;
 	pointer-events: none;
 	position: absolute;
 	width: calc(100% + 10px);
@@ -107,29 +97,34 @@ nav li:focus-within {
 	y: 5px;
 	stroke: var(--color-main);
 	stroke-width: 4px;
-	stroke-dasharray: 50px 200px;
+	stroke-dasharray: 50px 250px;
 	stroke-dashoffset: 50px;
-	transition: stroke-dasharray 500ms, stroke 500ms;
+	transition: stroke-dasharray 500ms, stroke 500ms, stroke-dashoffset 500ms;
 }
 
 nav li:hover rect,
 nav li:focus-within rect
 {
 	stroke: var(--color-accent);
-	stroke-dasharray: 250 0px;
+	stroke-dasharray: 300 0px;
+	stroke-dashoffset: -50px;
 }
 
-nav a {
+.unselectable,
+.unselectable rect,
+.unselectable:hover rect, 
+.unselectable:focus-within rect {
+	stroke: rgb(102, 102, 102);
+	color: rgb(102, 102, 102);
+}
+
+nav a, 
+nav p {
 	text-decoration: none;
-}
-
-@media (min-width: 850px) {
-	nav ul {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-	nav li {
-		max-width: 200px;
-	}
+	display: block;
+	flex: 1;
+	text-align: center;
+	outline: none;
 }
 
 /* LOGO STUFF */
@@ -143,11 +138,12 @@ header:hover {
 	--logo102-slideY: 0;
 	--logoChars-slideX: 0;
 	--logoChars-slideY: 0;
-	max-width: min(90vw, 1360px);
-	max-height: min(80vh, 970px);
+	/* max-width: min(90vw, 1360px); */
+	/* max-height: min(80vh, 970px); */
 	aspect-ratio: 1360/970;
-	margin-block: 2rem;
-	margin-inline: auto;
+	min-height: 0;
+	flex-shrink: 1;
+
 	position: relative;
 	isolation: isolate;
 	transform: translate( calc(var(--logo102-slideX)*var(--logo-slideScale)) , calc(var(--logo102-slideY)*var(--logo-slideScale)) );
