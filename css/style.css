@@ -122,6 +122,7 @@ nav a,
 nav p {
 	text-decoration: none;
 	display: block;
+	user-select: none;
 	flex: 1;
 	text-align: center;
 	outline: none;
