@@ -366,10 +366,12 @@ a:focus{
 		padding: 0px;
 		transition: 500ms;
 	}
-	.header-normal[aria-expanded="true"] .nav-normal {
+	.header-normal[aria-expanded="true"] .nav-normal,
+	.nav-normal:focus-within {
 		grid-template-rows: 1fr;
 	}
-	.header-normal[aria-expanded="true"] .nav-normal ul {
+	.header-normal[aria-expanded="true"] .nav-normal ul,
+	.nav-normal:focus-within ul {
 		padding: 5px;
 		margin-bottom: 2rem;
 	}
