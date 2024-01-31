@@ -5,18 +5,28 @@
 
 :root{
 	--color-bg: #291b25;
-	--color-bg-light: #493c46;
+	--color-bg-light: #3e2b3a;
 	--color-primary: #d5374e;
 	--color-primary-dark: #8b1d2e;
 	--color-accent: #fca048;
 
 	--color-text: rgb(218, 218, 218);
-	--color-heading: rgb(255, 255, 255);
+	--color-text-bright: rgb(255, 255, 255);
 
 	--color-grey: rgb(102, 102, 102);
 
 	--ff-heading: 'Days One', sans-serif;
 	--ff-body: 'Saira', sans-serif;
+	
+	--fs--2: clamp(0.7901rem, 0.7855rem + 0.0232vi, 0.8rem);
+	--fs--1: clamp(0.8889rem, 0.8366rem + 0.2614vi, 1rem);
+	--fs-0: clamp(1rem, 0.8824rem + 0.5882vi, 1.25rem);
+	--fs-1: clamp(1.125rem, 0.9191rem + 1.0294vi, 1.5625rem);
+	--fs-2: clamp(1.2656rem, 0.9421rem + 1.6176vi, 1.9531rem);
+	--fs-3: clamp(2.1094rem, 1.6314rem + 2.3897vi, 3.125rem);
+
+	--fs-4: clamp(3.0034rem, 1.5445rem + 7.2944vi, 6.1035rem);
+	--fs-5: clamp(3.3788rem, 1.3785rem + 10.0014vi, 7.6294rem);
 }
 
 *, *::before, *::after {
@@ -27,13 +37,38 @@
 
 body {
 	background-color: var(--color-bg);
-	color: var(--color-text);
 	font-family: var(--ff-body);
-	font-size: 1rem;
 }
 
 .body-wrapper {
-	width: min;
+	color: var(--color-text);
+	font-size: var(--fs-1);
+	line-height: 1.6;
+}
+
+.body-wrapper,
+.full-width {
+	--padding-inline: 1.5rem;
+	--content-max-width: 60ch;
+	display: grid;
+	grid-template-columns:
+		[full-width-start]
+		minmax(var(--padding-inline), 1fr)
+		[content-start]
+		min(100% - var(--padding-inline) * 2, var(--content-max-width))
+		[content-end]
+		minmax(var(--padding-inline), 1fr)
+		[full-width-end]
+	;
+}
+
+.body-wrapper > :not(.full-width),
+.full-width > :not(.full-width) {
+	grid-column: content;
+}
+
+.body-wrapper > .full-width {
+	grid-column: full-width;
 }
 
 img {
@@ -47,33 +82,37 @@ a {
 	transition: color 0.5s;
 }
 
-main h1 {
+.body-wrapper h1 {
+	line-height: 1.1;
 	font-family: var(--ff-heading);
 	color: var(--color-accent);
-	font-size: 5rem;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	font-size: var(--fs-4);
+	margin-top: 1em;
+	text-wrap: balance;
 }
 
-main h2 {
+.body-wrapper h2 {
+	line-height: 1.1;
 	color: var(--color-primary);
-	font-size: 2.5rem;
-	margin-bottom: 0.5rem;
+	font-size: var(--fs-3);
+	font-weight: 700;
+	margin-top: 1.5em;
 }
 
-main img{
-	margin-bottom: 2rem;
+.body-wrapper em {
+	color: var(--color-text-bright);
 }
 
-main p {
-	font-size: 1.2rem;
-	margin-bottom: 2rem;
+::marker {
+	color: var(--color-accent);
 }
 
-main {
-	position: relative;
-	max-width: 1000px;
-	margin-inline: auto;
+.flow > * + * {
+	margin-top: 1em;
+}
+
+.bg-light {
+	background-color: var(--color-bg-light);
 }
 
 a:hover,
@@ -175,7 +214,7 @@ a:focus{
 }
 
 .button-container p {
-	color: var(--color-heading);
+	color: var(--color-text-bright);
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -387,7 +426,8 @@ a:focus{
 		transition: 500ms;
 	}
 	.nav-normal ul {
-		padding: 0px;
+		padding-inline: 5px;
+		padding-block: 0px;
 		transition: 500ms;
 	}
 	.header-normal[aria-expanded="true"] .nav-normal,
@@ -396,7 +436,8 @@ a:focus{
 	}
 	.header-normal[aria-expanded="true"] .nav-normal ul,
 	.nav-normal:focus-within ul {
-		padding: 5px;
+		padding-inline: 5px;
+		padding-block: 5px;
 		margin-bottom: 2rem;
 	}
 	.header-normal[aria-expanded="true"],
