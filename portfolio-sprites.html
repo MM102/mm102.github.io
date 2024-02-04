@@ -55,30 +55,34 @@
 						<rect class="button-line"></rect>
 					</svg>
 				</li>
+
 			</ul>
 		</nav>
 	</header>
 	<main class="body-wrapper flow">
-		<h1>What do you want to see?</h1>
-		<div class="flexbox" style="--gap:1.5em">
-			<div>
-				<li class="button-container" style="--button-width: 300px; --button-height: 75px;">
-					<a href="portfolio-sprites.html"><h2>Pixel art</h2></a>
-					<svg class="button-svg">
-						<rect class="button-line line-thick"></rect>
-					</svg>
-				</li>
-			</div>
-			<div>
-				<li class="button-container" style="--button-width: 300px; --button-height: 75px;">
-					<a href="portfolio-illustration.html"><h2>Illustration</h2></a>
-					<svg class="button-svg">
-						<rect class="button-line line-thick"></rect>
-					</svg>
-				</li>
+		<h1>Pixel Art</h1>
+		<p>Here's a collection various pixel art projects I've made over the years. A lot of my pixel art is done with <em>SNES restrictions</em> as it's my hobby.</p>
+
+		<div class="image-scroll-indicators">
+			<div id="scroll1" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
+				<img src="img/sprites/arcade.png" alt="">
 			</div>
 		</div>
-		<p class="body-wrapper-last">Other notable works such as videos can be found on my about page.</p>
+
+		<div class="image-scroll-indicators">
+			<div id="scroll2" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
+				<img src="img/sprites/steampunk.png" alt="">
+			</div>
+		</div>
+
+		<h2>Pixel recreations</h2>
+		<img src="img/sprites/fantashoyu.png" alt="">
+		<div class="flexbox">
+			<img src="img/sprites/fantashoyu-packed.png" alt="">
+			<div class="flex-text">
+				<p>A recreation of soy sauce and Fanta bottles for a SMW project. Packed representation underneath.<br><br>15 colors + transparent per bottle.</p>
+			</div>
+		</div>
 	</main>
 	<footer>
 

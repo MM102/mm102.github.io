@@ -37,6 +37,52 @@ function logoUpdate() {
 	logo.style.setProperty("--logoChars-slideY", logoCharsOffsetY + "px");
 };
 
+function imgMove(event) {
+	if ( mobileCheck() ) {
+		return
+	};
+	imgContainer_mouseX = event.clientX;
+	imgUpdate();
+};
+
+
+function imgUpdate() {
+	const imgContainer = document.querySelector( ".image-scroll-container:hover" );
+	const img = document.querySelector( ".image-scroll-container:hover img" );
+	const imgContainer_rect = imgContainer.getBoundingClientRect();
+	const img_rect = img.getBoundingClientRect();
+
+	const staticRegion = 50
+	const mouseX = (imgContainer_mouseX-(imgContainer_rect.left+staticRegion)) / (imgContainer_rect.width-(staticRegion*2));
+	const mouseXClamp = Math.min(Math.max(mouseX, 0), 1);
+	const imgOffsetX = Math.floor(((img_rect.width - imgContainer_rect.width)*mouseXClamp)/2)*2;
+
+	imgContainer.style.setProperty("--img-scrollX", imgOffsetX + "px");
+	imgContainer.scrollLeft = imgOffsetX;
+};
+
+function imgScroll(t) {
+
+	const imgContainer = document.getElementById(t);
+	const imgIndicators = imgContainer.parentNode;
+	const img = imgContainer.querySelector( "img" );
+	const imgContainer_rect = imgContainer.getBoundingClientRect();
+	const img_rect = img.getBoundingClientRect();
+
+	const scrollPercent = -(imgContainer.scrollLeft) / (imgContainer_rect.width - img_rect.width);
+	
+	if (scrollPercent == 0) {
+		imgIndicators.style.setProperty('--opacity-left', 0);
+	} else {
+		imgIndicators.style.setProperty('--opacity-left', 1);
+	}
+	if (scrollPercent == 1) {
+		imgIndicators.style.setProperty('--opacity-right', 0);
+	} else {
+		imgIndicators.style.setProperty('--opacity-right', 1);
+	}
+
+};
 
 function toggleNav() {
 	const header = document.querySelector( ".header-normal" );

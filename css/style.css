@@ -5,6 +5,8 @@
 
 :root{
 	--color-bg: #291b25;
+	--color-bg-transparent-80: #291b25CD;
+	--color-bg-transparent-50: #291b2588;
 	--color-bg-light: #3e2b3a;
 	--color-primary: #d5374e;
 	--color-primary-dark: #8b1d2e;
@@ -50,7 +52,7 @@ body {
 .body-wrapper,
 .full-width {
 	--padding-inline: 1.5rem;
-	--content-max-width: 60ch;
+	--content-max-width: 1024px;
 	display: grid;
 	grid-template-columns:
 		[full-width-start]
@@ -111,7 +113,7 @@ a {
 }
 
 .body-wrapper ul {
-	padding-left: 2em;
+	padding-left: 1em;
 }
 
 .flow > * + * {
@@ -129,13 +131,14 @@ a:focus{
 
 .flexbox {
 	display: flex;
-	gap: 1rem;
+	flex-wrap: wrap;
+	gap: var(--gap, 1.5rem);
 }
 
-@media (max-width: 900px) {
-	.flexbox {
-		flex-direction: column;
-	}
+.flex-text {
+	display: inline;
+	min-width: 300px;
+	flex: 1;
 }
 
 .flex-no-shrink {
@@ -156,6 +159,77 @@ a:focus{
 
 .body-wrapper-last {
 	margin-bottom: 5em;
+}
+
+/* ------------ */
+/* IMAGE SCROLL */
+/* ------------ */
+
+.image-scroll-indicators {
+	position: relative;
+	width: 100%;
+	isolation: isolate;
+}
+
+.image-scroll-indicators::before {
+	content: '◄';
+	z-index: 1;
+	position: absolute;
+	height: 100%;
+	width: 50px;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-text-bright);
+	background-image:
+		linear-gradient(to right, var(--color-bg-transparent-50), transparent),
+		linear-gradient(to right, var(--color-bg-transparent-50), transparent),
+		linear-gradient(to right, var(--color-bg-transparent-50), transparent);
+	opacity: var(--opacity-left, 0);
+	transition: 500ms;
+	pointer-events: none;
+}
+
+.image-scroll-indicators::after {
+	content: '►';
+	z-index: 1;
+	position: absolute;
+	height: 100%;
+	width: 50px;
+	top: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-text-bright);
+	background-image:
+		linear-gradient(to left, var(--color-bg-transparent-50), transparent),
+		linear-gradient(to left, var(--color-bg-transparent-50), transparent),
+		linear-gradient(to left, var(--color-bg-transparent-50), transparent);
+	opacity: var(--opacity-right, 1);
+	transition: 500ms;
+	pointer-events: none;
+}
+
+.image-scroll-container {
+	position: relative;
+	width: 100%;
+	scroll-behavior: smooth;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.image-scroll-container::-webkit-scrollbar {	
+    display: none;
+}
+
+.image-scroll-container img {
+	max-width: initial;
+	max-height: initial;
 }
 
 /* ----------- */
@@ -215,14 +289,14 @@ a:focus{
 .button-container .button-svg {
 	pointer-events: none;
 	position: absolute;
-	width: calc(100% + 10px);
-	height: calc(100% + 10px);
+	width: calc(100% + 16px);
+	height: calc(100% + 16px);
 	inset: -5px;
 }
 
 .button-container .button-line {
-	width: calc(100% - 10px);
-	height: calc(100% - 10px);
+	width: calc(100% - 16px);
+	height: calc(100% - 16px);
 	fill: transparent;
 	x: 5px;
 	y: 5px;
@@ -231,6 +305,10 @@ a:focus{
 	stroke-dasharray: var(--button-height) var(--button-width);
 	stroke-dashoffset: var(--button-height);
 	transition: stroke-dasharray 500ms, stroke 500ms, stroke-dashoffset 500ms;
+}
+
+.button-container .line-thick {
+	stroke-width: 8px;
 }
 
 .button-container:hover rect,
@@ -251,8 +329,10 @@ a:focus{
 	outline: none;
 }
 
-.button-container p {
+.button-container p,
+.button-container h2 {
 	color: var(--color-text-bright);
+	margin: 0;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -260,12 +340,16 @@ a:focus{
 	transition: 500ms;
 }
 
-.button-container a:hover p {
+.button-container a:hover p,
+.button-container a:focus-within p,
+.button-container a:hover h2,
+.button-container a:focus-within h2 {
 	color: var(--color-accent);
 }
 
 .button-container.unselectable,
 .button-container.unselectable p,
+.button-container.unselectable h2,
 .button-container.unselectable rect,
 .button-container.unselectable:hover rect, 
 .button-container.unselectable:focus-within rect {
@@ -486,4 +570,13 @@ a:focus{
 		transform: rotate(-135deg);
 		bottom: -2px;
 	}
+}
+
+/* --------- */
+/* PORTFOLIO */
+/* --------- */
+
+.portfolio-buttons {
+	display: flex;
+	
 }
