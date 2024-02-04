@@ -18,7 +18,7 @@
 	--color-grey: rgb(102, 102, 102);
 
 	--ff-heading: 'Days One', sans-serif;
-	--ff-body: 'Saira', 'Inter', sans-serif;
+	--ff-body: 'Saira', sans-serif;
 	
 	--fs--2: clamp(0.7901rem, 0.7855rem + 0.0232vi, 0.8rem);
 	--fs--1: clamp(0.8889rem, 0.8366rem + 0.2614vi, 1rem);
@@ -183,6 +183,7 @@ a:focus{
 	align-items: center;
 	justify-content: center;
 	color: var(--color-text-bright);
+	font-family: 'Inter', sans-serif;
 	background-image:
 		linear-gradient(to right, var(--color-bg-transparent-50), transparent),
 		linear-gradient(to right, var(--color-bg-transparent-50), transparent),
@@ -204,6 +205,7 @@ a:focus{
 	align-items: center;
 	justify-content: center;
 	color: var(--color-text-bright);
+	font-family: 'Inter', sans-serif;
 	background-image:
 		linear-gradient(to left, var(--color-bg-transparent-50), transparent),
 		linear-gradient(to left, var(--color-bg-transparent-50), transparent),
