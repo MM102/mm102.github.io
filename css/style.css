@@ -229,7 +229,14 @@ a:focus{
 
 .image-scroll-container img {
 	max-width: initial;
-	max-height: initial;
+	/* height: clamp(50%, 15vw, 100%); */
+	height: clamp(var(--height)/2, 50vw, var(--height));
+}
+
+.test {
+	width: 10px;
+	height: clamp(50%, 15vw, 100%);
+	outline: 2px solid blue;
 }
 
 /* ----------- */
