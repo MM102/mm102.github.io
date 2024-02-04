@@ -55,7 +55,7 @@ function imgUpdate() {
 	const staticRegion = 50
 	const mouseX = (imgContainer_mouseX-(imgContainer_rect.left+staticRegion)) / (imgContainer_rect.width-(staticRegion*2));
 	const mouseXClamp = Math.min(Math.max(mouseX, 0), 1);
-	const imgOffsetX = Math.floor(((img_rect.width - imgContainer_rect.width)*mouseXClamp)/2)*2;
+	const imgOffsetX = ((img_rect.width - imgContainer_rect.width)*mouseXClamp);
 
 	imgContainer.style.setProperty("--img-scrollX", imgOffsetX + "px");
 	imgContainer.scrollLeft = imgOffsetX;
@@ -84,6 +84,23 @@ function imgScroll(t) {
 
 };
 
+function imgResize(t) {
+	const imgContainer = document.getElementById(t);
+	const img = imgContainer.querySelector( "img" );
+	console.log(img.naturalHeight);
+}
+
+
+window.addEventListener("resize", body_resize());
+
+function body_resize() {
+	const allImages = document.querySelectorAll("img");
+	for(var i = 0; i < allImages.length ; i++) {
+		console.log(allImages[i]);
+	}
+}
+
+  
 function toggleNav() {
 	const header = document.querySelector( ".header-normal" );
 	const navIsOpened = header.getAttribute("aria-expanded");

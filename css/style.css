@@ -18,7 +18,7 @@
 	--color-grey: rgb(102, 102, 102);
 
 	--ff-heading: 'Days One', sans-serif;
-	--ff-body: 'Saira', sans-serif;
+	--ff-body: 'Saira', 'Inter', sans-serif;
 	
 	--fs--2: clamp(0.7901rem, 0.7855rem + 0.0232vi, 0.8rem);
 	--fs--1: clamp(0.8889rem, 0.8366rem + 0.2614vi, 1rem);
@@ -229,8 +229,15 @@ a:focus{
 
 .image-scroll-container img {
 	max-width: initial;
-	/* height: clamp(50%, 15vw, 100%); */
-	height: clamp(var(--height)/2, 50vw, var(--height));
+	height: var(--height);
+	image-rendering: pixelated;
+}
+
+@media (min-width: 512px) {
+	.image-scroll-container img {
+		height: calc(var(--height)*2);
+	}
+	
 }
 
 .test {
