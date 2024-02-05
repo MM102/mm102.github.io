@@ -230,7 +230,6 @@ a:focus{
 .image-scroll-container {
 	position: relative;
 	width: 100%;
-	scroll-behavior: smooth;
 	overflow-x: scroll;
 	overflow-y: hidden;
 	-ms-overflow-style: none;
