@@ -18,7 +18,6 @@ function logoMove(event) {
 	logoUpdate();
 };
 
-
 function logoUpdate() {
 	const header = document.querySelector( "header" );
 	// console.log();
@@ -44,7 +43,6 @@ function imgMove(event) {
 	imgContainer_mouseX = event.clientX;
 	imgUpdate();
 };
-
 
 function imgUpdate() {
 	const imgContainer = document.querySelector( ".image-scroll-container:hover" );
@@ -90,7 +88,6 @@ function imgResize(t) {
 	console.log(img.naturalHeight);
 }
 
-
 window.addEventListener("resize", body_resize());
 
 function body_resize() {
@@ -99,7 +96,6 @@ function body_resize() {
 		console.log(allImages[i]);
 	}
 }
-
   
 function toggleNav() {
 	const header = document.querySelector( ".header-normal" );

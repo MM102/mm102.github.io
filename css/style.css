@@ -172,7 +172,7 @@ a:focus{
 }
 
 .image-scroll-indicators::before {
-	content: '◄';
+	content: url('/img/arrow-left.svg');
 	z-index: 1;
 	position: absolute;
 	height: 100%;
@@ -194,7 +194,7 @@ a:focus{
 }
 
 .image-scroll-indicators::after {
-	content: '►';
+	content: url('/img/arrow-right.svg');
 	z-index: 1;
 	position: absolute;
 	height: 100%;
