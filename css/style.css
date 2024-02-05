@@ -173,8 +173,8 @@ a:focus{
 
 .image-scroll-indicators::before {
 	/* content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -1 15 8'%3E%3Cpath d='M 5 0 L 4 -1 L 0 3 L 4 7 L 5 6 L 2 3 Z' fill='%23ffffff'/%3E%3C/svg%3E"); */
-	/* content: url('data:image/svg+xml;utf8,<svg version="1.1" id="" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink"  style="" xml:space="preserve" viewBox="-5 -1 15 8"><path d="M 5 0 L 4 -1 L 0 3 L 4 7 L 5 6 L 2 3 Z" fill="%23ffffff"></path></svg>'); */
-	content: url("https://102.cool/img/arrow-left.svg");
+	content: url('data:image/svg+xml;utf8,<svg version="1.1" id="" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink"  style="" xml:space="preserve" viewBox="-5 -1 15 8"><path d="M 5 0 L 4 -1 L 0 3 L 4 7 L 5 6 L 2 3 Z" fill="%23ffffff"></path></svg>');
+	/* content: url("https://102.cool/img/arrow-left.svg"); */
 
 	z-index: 1;
 	position: absolute;
@@ -186,9 +186,9 @@ a:focus{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--color-text-bright);
 
-	font-family: 'Inter', sans-serif;
+	/* color: var(--color-text-bright);
+	font-family: 'Inter', sans-serif; */
 
 	background-image:
 		linear-gradient(to right, var(--color-bg-transparent-50), transparent),
@@ -202,10 +202,10 @@ a:focus{
 
 .image-scroll-indicators::after {
 	/* content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -1 15 8'%3E%3Cpath d='M 0 0 L 1 -1 L 5 3 L 1 7 L 0 6 L 3 3 Z' fill='%23ffffff'/%3E%3C/svg%3E"); */
-	/* content: url('data:image/svg+xml;utf8,<svg version="1.1" id="" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink"  style="" xml:space="preserve" viewBox="-5 -1 15 8"><path d="M 0 0 L 1 -1 L 5 3 L 1 7 L 0 6 L 3 3 Z" fill="%23ffffff"></path></svg>'); */
+	content: url('data:image/svg+xml;utf8,<svg version="1.1" id="" xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" xmlns:xlink="http://www.w3.org/1999/xlink"  style="" xml:space="preserve" viewBox="-5 -1 15 8"><path d="M 0 0 L 1 -1 L 5 3 L 1 7 L 0 6 L 3 3 Z" fill="%23ffffff"></path></svg>');
 
 	/* content: '';
-	background-image: url("/img/arrow-right.svg");
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -1 15 8'%3E%3Cpath d='M 0 0 L 1 -1 L 5 3 L 1 7 L 0 6 L 3 3 Z' fill='%23ffffff'/%3E%3C/svg%3E");
 	background-position: center;
     background-size: auto;
     background-repeat: no-repeat; */
@@ -220,8 +220,8 @@ a:focus{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--color-text-bright);
 
+	color: var(--color-text-bright);
 	font-family: 'Inter', sans-serif;
 
 	background-image:
