@@ -38,6 +38,8 @@ function logoUpdate() {
 
 function imgMove(event) {
 	if ( mobileCheck() ) {
+		const imgContainer = document.querySelector( ".image-scroll-container:hover" );
+		imgContainer.style.overflowX = "scroll"; 
 		return
 	};
 	imgContainer_mouseX = event.clientX;
@@ -46,25 +48,26 @@ function imgMove(event) {
 
 function imgUpdate() {
 	const imgContainer = document.querySelector( ".image-scroll-container:hover" );
+	const imgIndicators = imgContainer.parentNode;
 	const img = document.querySelector( ".image-scroll-container:hover img" );
 	const imgContainer_rect = imgContainer.getBoundingClientRect();
 	const img_rect = img.getBoundingClientRect();
-
 	const staticRegion = 50
 	const mouseX = (imgContainer_mouseX-(imgContainer_rect.left+staticRegion)) / (imgContainer_rect.width-(staticRegion*2));
 	const mouseXClamp = Math.min(Math.max(mouseX, 0), 1);
 	const imgOffsetX = ((img_rect.width - imgContainer_rect.width)*mouseXClamp);
 
-	// imgContainer.style.setProperty("--img-scrollX", imgOffsetX + "px");
-	if (navigator.userAgent.indexOf("Firefox") != -1) {
-		// imgContainer.style.scrollBehavior = "smooth";
+	imgContainer.style.setProperty("--img-scrollX", -imgOffsetX + "px");
+
+	if (mouseXClamp == 0) {
+		imgIndicators.style.setProperty('--opacity-left', 0);
+	} else {
+		imgIndicators.style.setProperty('--opacity-left', 1);
 	}
-	if (imgContainer.scrollLeft != Math.round(imgOffsetX)) {
-		if (navigator.userAgent.indexOf("Firefox") != -1) {
-			imgContainer.scrollTo({top: 0, left: imgOffsetX, behavior: "smooth"});
-		} else {
-			imgContainer.scrollTo({top: 0, left: imgOffsetX});
-		}
+	if (mouseXClamp == 1) {
+		imgIndicators.style.setProperty('--opacity-right', 0);
+	} else {
+		imgIndicators.style.setProperty('--opacity-right', 1);
 	}
 };
 
