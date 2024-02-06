@@ -10,6 +10,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Days+One&family=Saira:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap" rel="stylesheet">	
 	<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="js/main.js"></script>
+	<script src="js/butter.js"></script>
 </head>
 <body>
 	<header class="header-normal" onclick="toggleNav()">
@@ -61,19 +62,38 @@
 	</header>
 	<main class="body-wrapper flow">
 		<h1>Pixel Art</h1>
-		<p>Here's a collection various pixel art projects I've made over the years. A lot of my pixel art is done with <em>SNES restrictions</em> as it's my hobby.</p>
-
+		<p>Here's a collection various pixel art projects I've made over the years. A lot of my pixel art is done with SNES restrictions as it's my hobby.<br><br>
+		<em>This website is best viewed on a desktop browser.</em></p>
+		
+		<h2>Arcade</h2>
 		<div class="image-scroll-indicators">
-			<div id="scroll1" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
-				<img src="img/sprites/arcade.png" style="--height: 176px;" alt="">
+			<div id="scroll1" style="--height: 176px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
+				<img id="arcade1" src="img/sprites/Arcade-L1.png" alt="">
+				<img id="arcade2" src="img/sprites/Arcade-L2.png" class="blend-add" alt="">
 			</div>
 		</div>
+		<div>
+			<label class="checkbox-wrapper">
+				<input id="arcade1-checkbox" type="checkbox" checked="checked" onclick="hideId('arcade1', 'arcade1-checkbox')">
+				<span class="checkmark"></span>
+				<p>Layer 1</p>
+			</label>
+			<label class="checkbox-wrapper">
+				<input id="arcade2-checkbox" type="checkbox" checked="checked" onclick="hideId('arcade2', 'arcade2-checkbox')">
+				<span class="checkmark"></span>
+				<p>Layer 2</p>
+			</label>
+		</div>
+		<p>An acrade made for a SMW hack. SNES color restrictions. It uses 2 layers, the second layer is in an additive blend mode to create a glowing effect.</p>
 
+		<h2>Steampunk tileset</h2>
 		<div class="image-scroll-indicators">
-			<div id="scroll2" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
-				<img src="img/sprites/steampunk.png" style="--height: 224px;" alt="">
+			<div id="scroll2" style="--height: 224px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
+				<img src="img/sprites/steampunk.png" alt="">
 			</div>
 		</div>
+		<p>The winner of a <a href="https://www.smwcentral.net/?p=viewthread&t=100112">graphics contest hosted by SMWCentral.net</a>. <br>SNES color restrictions.<br><br>The theme of the contest was steampunk, but rather than making something gritty an over industrial I thought it would be fun to make it feel like a festival with ballons, bunting, and airships. <br><br>Check it out in motion from the video below!</p>
+		<iframe class="yt-vid-smw" width="512" height="448" src="https://www.youtube-nocookie.com/embed/jDGyGSg5N9Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 		<h2>Pixel recreations</h2>
 		<img src="img/sprites/fantashoyu.png" alt="">

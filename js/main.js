@@ -55,8 +55,17 @@ function imgUpdate() {
 	const mouseXClamp = Math.min(Math.max(mouseX, 0), 1);
 	const imgOffsetX = ((img_rect.width - imgContainer_rect.width)*mouseXClamp);
 
-	imgContainer.style.setProperty("--img-scrollX", imgOffsetX + "px");
-	imgContainer.scrollLeft = imgOffsetX;
+	// imgContainer.style.setProperty("--img-scrollX", imgOffsetX + "px");
+	if (navigator.userAgent.indexOf("Firefox") != -1) {
+		// imgContainer.style.scrollBehavior = "smooth";
+	}
+	if (imgContainer.scrollLeft != Math.round(imgOffsetX)) {
+		if (navigator.userAgent.indexOf("Firefox") != -1) {
+			imgContainer.scrollTo({top: 0, left: imgOffsetX, behavior: "smooth"});
+		} else {
+			imgContainer.scrollTo({top: 0, left: imgOffsetX});
+		}
+	}
 };
 
 function imgScroll(t) {
@@ -82,18 +91,13 @@ function imgScroll(t) {
 
 };
 
-function imgResize(t) {
-	const imgContainer = document.getElementById(t);
-	const img = imgContainer.querySelector( "img" );
-	console.log(img.naturalHeight);
-}
-
-window.addEventListener("resize", body_resize());
-
-function body_resize() {
-	const allImages = document.querySelectorAll("img");
-	for(var i = 0; i < allImages.length ; i++) {
-		console.log(allImages[i]);
+function hideId(id, box) {
+	var checkBox = document.getElementById(box);
+	var x = document.getElementById(id);
+	if (checkBox.checked == true) {
+	  x.style.opacity = 1;
+	} else {
+	  x.style.opacity = 0;
 	}
 }
   
