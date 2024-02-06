@@ -149,11 +149,13 @@ a:focus{
 .yt-vid {
 	aspect-ratio: 16/9;
 	height: auto;
+	max-width: 100%;
 }
 
 .yt-vid-smw {
 	aspect-ratio: 8/7;
 	height: auto;
+	max-width: 100%;
 }
 
 .text-light {
