@@ -71,7 +71,18 @@ function imgUpdate() {
 	}
 };
 
+if ( mobileCheck() ) {
+	var scrollImgs = document.querySelectorAll('.image-scroll-container'), i;
+
+	for (i = 0; i < scrollImgs.length; ++i) {
+		scrollImgs[i].style.overflowX = "scroll";
+	}
+};
+
 function imgScroll(t) {
+	if ( mobileCheck() ) {
+		return
+	};
 
 	const imgContainer = document.getElementById(t);
 	const imgIndicators = imgContainer.parentNode;
