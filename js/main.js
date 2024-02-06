@@ -80,9 +80,6 @@ if ( mobileCheck() ) {
 };
 
 function imgScroll(t) {
-	if ( mobileCheck() ) {
-		return
-	};
 
 	const imgContainer = document.getElementById(t);
 	const imgIndicators = imgContainer.parentNode;
