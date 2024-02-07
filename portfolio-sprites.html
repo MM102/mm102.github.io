@@ -50,8 +50,8 @@
 						<rect class="button-line"></rect>
 					</svg>
 				</li>
-				<li class="button-container unselectable">
-					<p>Contact</p>
+				<li class="button-container">
+					<a href="contact.html" draggable="false"><p>Contact</p></a>
 					<svg class="button-svg">
 						<rect class="button-line"></rect>
 					</svg>
@@ -66,24 +66,6 @@
 		This website is best viewed on a desktop browser.</p>
 		
 
-
-		<h2>Rompy</h2>
-		<div class="image-scroll-indicators">
-			<div id="scroll-rompy1" style="--height: 224px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
-				<img id="arcade1" src="img/sprites/rompy 1.png" alt="">
-			</div>
-		</div>
-		<div class="image-scroll-indicators">
-			<div id="scroll-rompy2" style="--height: 224px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
-				<img id="arcade1" src="img/sprites/rompy 2.png" alt="">
-			</div>
-		</div>
-		<div class="image-scroll-indicators">
-			<div id="scroll-rompy3" style="--height: 224px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
-				<img id="arcade1" src="img/sprites/rompy 3.png" alt="">
-			</div>
-		</div>
-		<p>rompy 1</p>
 
 		<h2>Arcade</h2>
 		<div class="image-scroll-indicators">
@@ -108,9 +90,71 @@
 
 
 
+		<h2>XP Character</h2>
+		<div class="image-sprite" style="--width: 256px;">
+			<img src="img/sprites/xp-mockup.gif" alt="">
+		</div>
+		<p>Custom character from another unrelease SMW hack. It uses a fully custom animation system allowing for much more expressiveness than a normal SMW character. The above image is only a mockup however.</p>
+		<div class="full-width bg-light">
+			<div class="flexbox flex-align-end">
+				<img src="img/sprites/xp-idle.gif" alt="">
+				<img src="img/sprites/xp-walk.gif" alt="">
+				<img src="img/sprites/xp-run.gif" alt="">
+				<img src="img/sprites/xp-spin.gif" alt="">
+				<img src="img/sprites/xp-jump.gif" alt="">
+			</div>
+		</div>
+		<p>Below is a view into how the character sheet is laid out in memory.</p>
+		<img src="img/sprites/xp-tilemap.png" alt="">
+
+
+
+		<h2>XP Starting cutscene</h2>
+		<div class="image-sprite bg-black" style="--width: 256px;">
+			<img id="room1" src="img/sprites/xp-room-L1.png" alt="">
+			<img id="room2" src="img/sprites/xp-room-L2.png" class="bled-difference" alt="">
+			<img id="room3" src="img/sprites/xp-room-L1+2.png" alt="">
+		</div>
+		<div>
+			<label class="checkbox-wrapper">
+				<input id="room1-checkbox" type="checkbox" checked="checked" onclick="hideRoom('room1', 'room3', 'room1-checkbox', 'room2-checkbox')">
+				<span class="checkmark"></span>
+				<p>Layer 1</p>
+			</label>
+			<label class="checkbox-wrapper">
+				<input id="room2-checkbox" type="checkbox" checked="checked" onclick="hideRoom('room2', 'room3', 'room2-checkbox', 'room1-checkbox')">
+				<span class="checkmark"></span>
+				<p>Layer 2</p>
+			</label>
+		</div>
+		<p>Heres a room I made made for the same unreleased hack. SNES color restrictions. This also uses 2 layers but this time the second layer uses the subtraction blend mode.</p>
+
+
+
+		<h2>Rhythm Heaven Reanimated</h2>
+		<div class="image-sprite" style="--width: 320px;">
+			<img src="img/sprites/rhythm/aceprite.gif" alt="">
+		</div>
+		<p>My contribution to the <a href="https://youtu.be/Pk0SjQSAb_8?t=1011">Rhythm Heaven Reanimated</a> project. Animated entirely within aseprite. <br><br>
+		Below are some WIPs from the animation.</p>
+		<div class="flexbox">
+			<div class="image-sprite" style="--width: 256px;">
+				<img src="img/sprites/rhythm/guy4.gif" alt="">
+			</div>
+			<div class="image-sprite" style="--width: 65px;">
+				<img src="img/sprites/rhythm/burd3.gif" alt="">
+			</div>
+		</div>
+		<img src="img/sprites/rhythm/timeline.png" alt="">
+		<img src="img/sprites/rhythm/COOL!!!.PNG" alt="">
+		<p>And the original clip for reference.</p>
+		<img src="img/sprites/rhythm/aceorig.gif" alt="">
+
+
+
 		<h2>Steampunk tileset</h2>
 		<div class="image-scroll-indicators">
-			<div id="scroll-steampunk" style="--height: 224px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
+			<div id="scroll-steampunk" style="--width: 128px; --height: 224px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
 				<img src="img/sprites/steampunk.png" alt="">
 			</div>
 		</div>
@@ -120,15 +164,167 @@
 
 
 		<h2>Pixel recreations</h2>
-		<img src="img/sprites/fantashoyu.png" alt="">
-		<div class="flexbox">
-			<img src="img/sprites/fantashoyu-packed.png" alt="">
-			<div class="flex-text">
-				<p>A recreation of soy sauce and Fanta bottles for a SMW project. Packed representation underneath.<br><br>15 colors + transparent per bottle.</p>
+		<div class="image-sprite" style="--width: 512px;">
+			<img src="img/sprites/fantashoyu.png" alt="">
+		</div>
+		<div class="full-width bg-light">
+			<div class="flexbox">
+				<div class="image-sprite flex-1" style="--width: 144px;">
+					<img src="img/sprites/fantashoyu-packed.png" alt="">
+				</div>
+				<div class="flex-text">
+					<p>A recreation of soy sauce and Fanta bottles for a SMW project. Packed representation underneath.<br><br>15 colors + transparent per bottle.</p>
+				</div>
+			</div>
+		</div>
+		<div class="full-width bg-light">
+			<div class="flexbox">
+				<div class="image-sprite flex-1" style="--width: 192px;">
+					<img src="img/sprites/granddad.gif" alt="">
+				</div>
+				<div class="flex-text">
+					<p>A 16-bit version of a popular bootleg sprite I did for my <a href="https://youtu.be/hTBnJ3wqtZ0">Grand Dad Mania</a> video.</p>
+				</div>
+			</div>
+		</div>
+		<div class="full-width bg-light">
+			<div class="flexbox flex-justify-center">
+				<div class="image-sprite flex-1" style="--width: 184px;">
+					<img src="img/sprites/dedede.png" alt="">
+				</div>
+				<div class="flex-text">
+					<p>King dedede to Jack Black for <a href="https://youtu.be/ddWJatRxfz8">The Glorious Octagon of Destiny</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="full-width bg-light">
+			<div class="flexbox flex-justify-center">
+				<div class="image-sprite flex-1" style="--width: 160px;">
+					<img src="img/sprites/rockykart_comp.gif" alt="">
+				</div>
+				<div class="flex-text">
+					<p>A custom Mario Kart 64 style sprite for SRB2Kart.</a></p>
+				</div>
 			</div>
 		</div>
 
 
+
+		<h2>ITG2 background recreation</h2>
+			<div class="flexbox">
+				<div class="image-sprite" style="--width: 256px;">
+					<img src="img/sprites/nitg/orig.png" alt="">
+				</div>
+				<div class="flex-text">
+					<p>Original image. <br>
+					Resized to 256x224 (SNES resolution).</p>
+				</div>
+			</div>
+			<div class="flexbox">
+				<div class="image-sprite" style="--width: 256px;">
+					<img src="img/sprites/nitg/snesgfx.png" alt="">
+				</div>
+				<div class="flex-text">
+					<p>Output from an automated tool (SNESGFX) for comparison.</p>
+				</div>
+			</div>
+			<div class="flexbox">
+				<div class="image-sprite" style="--width: 256px;">
+					<img src="img/sprites/nitg/manual1.png" alt="">
+				</div>
+				<div class="flex-text">
+					<img src="img/sprites/nitg/manual1-palette.png" alt="">
+					<p>Handcrafted result. <br>
+					Only uses 1 layer and 1, 15 color palette.</p>
+				</div>
+			</div>
+			<div class="flexbox">
+				<div class="image-sprite" style="--width: 256px;">
+					<img src="img/sprites/nitg/manual2.png" alt="">
+				</div>
+				<div class="flex-text">
+					<img src="img/sprites/nitg/manual2-palette.png" alt="">
+					<p>Now using 1 layer and 5, 15 color palettes and very carefully swapping palettes.</p>
+				</div>
+			</div>
+		</div>
+
+
+
+		<h2>Rompy</h2>
+		<div class="image-scroll-indicators">
+			<div id="scroll-rompy1" style="--height: 224px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
+				<img src="img/sprites/rompy-1.png" alt="">
+			</div>
+		</div>
+		<div class="image-scroll-indicators">
+			<div id="scroll-rompy2" style="--height: 224px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
+				<img src="img/sprites/rompy-2.png" alt="">
+			</div>
+		</div>
+		<div class="image-scroll-indicators">
+			<div id="scroll-rompy3" style="--height: 224px;" class="image-scroll-container" onmousemove="imgMove(event)" onscroll="imgScroll(this.id)">
+				<img src="img/sprites/rompy-3.png" alt="">
+			</div>
+		</div>
+		<p>Rompy is a super mario world hack I was developing with all original graphics. The entire game uses only one 15 color palette shown below.</p>
+		<img src="img/sprites/rompy-pal.png" alt="">
+
+
+
+		<h2>Checkpoint one</h2>
+		<div class="flexbox">
+			<div class="image-sprite" style="--width: 256px;">
+				<img src="img/sprites/CP1-animated.gif" alt="">
+			</div>
+			<div class="flex-text">
+				<p>Dramatic screen from a yet to be released SMW hack.</p>
+			</div>
+		</div>
+		<div class="flexbox">
+			<div class="image-sprite" style="--width: 256px;">
+				<img src="img/sprites/CP1-progress.gif" alt="">
+			</div>
+			<div class="flex-text">
+				<p>Here's the interation process.</p>
+			</div>
+		</div>
+
+
+
+		<h2>Kaizo race sprites</h2>
+		<img src="img/sprites/juzsheet.png" alt="">
+		<p>I was given the opportunity to create player sprites for the <a href="https://youtu.be/yARetgEZnEM?t=168">2019 Blind Kaizo Race at AGDQ</a>. Since then the sprites have been updated to my current standards, above is an updated sprite sheet for <a href="https://www.twitch.tv/juzcook">Juzcook</a>.</p>
+
+
+
+		<h2>Miscellaneous sprites</h2>
+		<div class="flexbox">
+			<div class="image-sprite" style="--width: 256px;">
+				<img src="img/sprites/rain.gif" alt="">
+			</div>
+			<div class="image-sprite" style="--width: 192px;">
+				<img src="img/sprites/walkcomp.gif" alt="">
+			</div>
+		</div>
+		<div class="flexbox flex-align-end">
+			<div class="image-sprite" style="--width: 48px;">
+				<img src="img/sprites/foxguy-run.gif" alt="">
+			</div>
+			<div class="image-sprite" style="--width: 32px;">
+				<img src="img/sprites/keyspin.gif" alt="">
+			</div>
+			<div class="image-sprite" style="--width: 64px;">
+				<img src="img/sprites/switch.gif" alt="">
+			</div>
+			<div class="image-sprite" style="--width: 224px;">
+				<img src="img/sprites/snak-logo.png" alt="">
+			</div>
+		</div>
+		<p>Various sprites I've made that don't need explanation.</p>
+
+		<h2>Thanks for reading!</h2>
+		<p class="body-wrapper-last">If any of this interests you and you want to get in touch, feel free to contact me at <a href="mailto:nathandonovan102@gmail.com">nathandonovan102@gmail.com</a> or however else on my <a href="contact.html">contact page</a>! </p>
 
 	</main>
 	<footer>

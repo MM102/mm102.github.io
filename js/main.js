@@ -48,8 +48,6 @@ function logoUpdate() {
 
 function imgMove(event) {
 	if ( mobileCheck() ) {
-		const imgContainer = document.querySelector( ".image-scroll-container:hover" );
-		// imgContainer.style.overflowX = "scroll"; 
 		return
 	};
 	imgContainer_mouseX = event.clientX;
@@ -108,9 +106,28 @@ function hideId(id, box) {
 	var checkBox = document.getElementById(box);
 	var x = document.getElementById(id);
 	if (checkBox.checked == true) {
-	  x.style.opacity = 1;
+		x.style.opacity = 1;
 	} else {
-	  x.style.opacity = 0;
+		x.style.opacity = 0;
+	}
+}
+
+function hideRoom(id, id2, box, box2) {
+	var checkBox = document.getElementById(box);
+	var checkBox2 = document.getElementById(box2);
+	var x = document.getElementById(id);
+	var y = document.getElementById(id2);
+
+	if (checkBox.checked == true) {
+		x.style.opacity = 1;
+	} else {
+		x.style.opacity = 0;
+	}
+
+	if (checkBox.checked == true && checkBox2.checked == true) {
+		y.style.opacity = 1;
+	} else {
+		y.style.opacity = 0;
 	}
 }
   
