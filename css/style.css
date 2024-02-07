@@ -40,6 +40,7 @@
 body {
 	background-color: var(--color-bg);
 	font-family: var(--ff-body);
+	word-break: break-word;
 }
 
 .body-wrapper {
@@ -153,13 +154,14 @@ a:focus{
 
 .flex-1 {
 	flex: 1;
-	min-width: 400px;
+	flex-basis: 300px;
 }
 
 .flex-text {
 	display: inline;
-	min-width: 300px;
-	flex: 2;
+	min-width: min(300px, 100%);
+	flex-basis: 400px;
+	flex: 5;
 }
 
 .flex-no-shrink {
